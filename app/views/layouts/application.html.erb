@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TaskApp</title>
+    <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class = header-container>
+        <h1>Ruby on Rails スケジュール管理アプリ</h1>
+      </div>
+    </header>
     <%= yield %>
+    <script>
+      date = new Date();
+      year = date.getFullYear();
+      month = date.getMonth() + 1;
+      day = date.getDate();
+      document.getElementById("cullent-date").innerHTML = year + "年" + month + "月" + day + "日";
+    </script>
   </body>
 </html>
